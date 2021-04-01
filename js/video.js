@@ -39,15 +39,21 @@ document.querySelector("#skip").addEventListener("click", function() {
 document.querySelector("#mute").addEventListener("click", function() {
 	if (video.muted == true){
 		console.log("Unmuting")
+		document.getElementById('mute').innerHTML = "Mute"
 		video.muted = false
 	}
 	else{
 		console.log("Muting")
+		document.getElementById("mute").innerHTML = "Unmute"
 		video.muted = true
 	}
 });
 
-
+document.querySelector("#slider").addEventListener("change", function() {
+	video.volume = this.value / 100
+	console.log("New volume is " + this.value + "%");
+	volume.innerHTML = this.value + "%"
+});
 
 document.querySelector("#vintage").addEventListener("click", function() {
 	console.log("Change CSS");
